@@ -22,6 +22,13 @@ pipeline {
             }
         }
         stage('Test Build'){
+            agent {
+                docker{
+                    image 'node:18-alpine'
+                    reuseNode true
+                }
+               
+            }
             steps {
             sh '''
             cat /var/jenkins_home/workspace/Project-1/build/index.html
