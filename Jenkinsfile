@@ -17,21 +17,19 @@ pipeline {
                     npm --version
                     npm ci
                     npm run build
-                    ls -la:
+                    ls -la
                 '''
             }
         }
         stage('Test Build'){
+            steps {
             sh '''
             cat /var/jenkins_home/workspace/Project-1/build/index.html
             npm test
             '''
+            }
+
         }
+    
     }
-    stage('Test Build'){
-            sh '''
-            cat /var/jenkins_home/workspace/Project-1/build/index.html
-            npm test
-            '''
-        }
 }
