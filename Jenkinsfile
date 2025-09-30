@@ -28,4 +28,10 @@ pipeline {
             '''
         }
     }
+    stage('Test Build'){
+            sh '''
+            cat /var/jenkins_home/workspace/Project-1/build/index.html
+            npm test
+            '''
+        }
 }
